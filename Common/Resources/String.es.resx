@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Adherir</value>
+  </data>
+  <data name="Covid_Status" xml:space="preserve">
+    <value>Covid_Status_</value>
+  </data>
+  <data name="Covid_Status_AdmittedInHospital" xml:space="preserve">
+    <value>Admitido Al Hospital</value>
+  </data>
+  <data name="Covid_Status_Critical" xml:space="preserve">
+    <value>Critico</value>
+  </data>
+  <data name="Covid_Status_Deceased" xml:space="preserve">
+    <value>Fallecido</value>
+  </data>
+  <data name="Covid_Status_Recuperated" xml:space="preserve">
+    <value>Recuperado</value>
+  </data>
+  <data name="Covid_Status_UnderEvaluation" xml:space="preserve">
+    <value>Bajo Evaluación</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="Delete_Which_Patient" xml:space="preserve">
+    <value>Que paciente desea eliminar? Por favor elija su Id</value>
+  </data>
+  <data name="Error_Between_1_5" xml:space="preserve">
+    <value>Debe elegir una opcion entre 1 y 5</value>
+  </data>
+  <data name="Error_Between_1_8000" xml:space="preserve">
+    <value>Debe elegir un número entre 1 y 8000</value>
+  </data>
+  <data name="Error_Between_Ten_Fifty" xml:space="preserve">
+    <value>Debe ser un valor con mas de 10 letras y menos de 50 letras</value>
+  </data>
+  <data name="Error_Id_Must_Exists" xml:space="preserve">
+    <value>El Id del paciente seleccionado no esta dentro de la lista de pacientes </value>
+  </data>
+  <data name="Error_In_Data" xml:space="preserve">
+    <value>Hubo un error ingresando</value>
+  </data>
+  <data name="Error_In_Name_Length" xml:space="preserve">
+    <value>El nombre debe contener menos de 20 letras</value>
+  </data>
+  <data name="Error_In_Name_OnlyLetters" xml:space="preserve">
+    <value>El nombre debe ser solamente letras</value>
+  </data>
+  <data name="Error_MoreThan_Zero_Five_Digits_Long" xml:space="preserve">
+    <value>Debe ser un numero mayor a 0 y que contenga 5 digitos</value>
+  </data>
+  <data name="Error_Must_Not_Be_Empty" xml:space="preserve">
+    <value>Este valor no puede ser nulo</value>
+  </data>
+  <data name="Error_Only_Number" xml:space="preserve">
+    <value>Esta opcion solo debe contener numeros</value>
+  </data>
+  <data name="Language_Selected_English" xml:space="preserve">
+    <value>Ingles</value>
+  </data>
+  <data name="Language_Selected_Spanish" xml:space="preserve">
+    <value>Español</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="Menu_GoBack" xml:space="preserve">
+    <value>Ir Atras</value>
+  </data>
+  <data name="Menu_Invalid_Selection" xml:space="preserve">
+    <value>Selección Invalida. Intente nuevamente</value>
+  </data>
+  <data name="Menu_Language_Selector" xml:space="preserve">
+    <value>Seleccionar Lenguage</value>
+  </data>
+  <data name="Menu_Press_Any_Button" xml:space="preserve">
+    <value>Presione cualquier boton para continuar</value>
+  </data>
+  <data name="Menu_Return_MainMenu" xml:space="preserve">
+    <value>Retornar al Menu Principal</value>
+  </data>
+  <data name="Menu_Select_An_Option" xml:space="preserve">
+    <value>Seleccione una opción</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>Modificar</value>
+  </data>
+  <data name="Modify_Which_Patient" xml:space="preserve">
+    <value>Que paciente desea modificar? Por favor elija su Id</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="No_Patients_To" xml:space="preserve">
+    <value>No hay pacientes para</value>
+  </data>
+  <data name="No_Patients_To_Show" xml:space="preserve">
+    <value>No hay pacientes para mostrar</value>
+  </data>
+  <data name="PersonId" xml:space="preserve">
+    <value>Id del Paciente</value>
+  </data>
+  <data name="Person_Added" xml:space="preserve">
+    <value>Adherida</value>
+  </data>
+  <data name="Person_AddedModified_Sucessfully" xml:space="preserve">
+    <value>Satisfactoriamente la persona ha sido</value>
+  </data>
+  <data name="Person_Address_PostalCode" xml:space="preserve">
+    <value>Codigo Postal</value>
+  </data>
+  <data name="Person_Address_StreetName" xml:space="preserve">
+    <value>Nombre de calle</value>
+  </data>
+  <data name="Person_Address_StreetNumber" xml:space="preserve">
+    <value>Numero de calle</value>
+  </data>
+  <data name="Person_Covid" xml:space="preserve">
+    <value>Estado por Covid</value>
+  </data>
+  <data name="Person_Deleted" xml:space="preserve">
+    <value>Eliminado</value>
+  </data>
+  <data name="Person_Id" xml:space="preserve">
+    <value>Id del Paciente</value>
+  </data>
+  <data name="Person_LastName" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="Person_Modified" xml:space="preserve">
+    <value>Modificada</value>
+  </data>
+  <data name="Person_Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Please_Enter_Data" xml:space="preserve">
+    <value>Por favor, ingrese la siguiente informacion</value>
+  </data>
+  <data name="Please_Select_Language" xml:space="preserve">
+    <value>Please select language / Por favor seleccione el idioma</value>
+  </data>
+  <data name="Please_Select_Option" xml:space="preserve">
+    <value>Por favor, seleccione una opcion</value>
+  </data>
+  <data name="PostalCode" xml:space="preserve">
+    <value>Codigo Postal</value>
+  </data>
+  <data name="Return_Main_Menu" xml:space="preserve">
+    <value>Retornar al menu principal</value>
+  </data>
+  <data name="Show_Add_Patients" xml:space="preserve">
+    <value>Adherir Paciente</value>
+  </data>
+  <data name="Show_All_Patients" xml:space="preserve">
+    <value>Mostrar todos los pacientes</value>
+  </data>
+  <data name="Show_Delete_Patients" xml:space="preserve">
+    <value>Eliminar Paciente</value>
+  </data>
+  <data name="Show_Modify_Patients" xml:space="preserve">
+    <value>Modificar Paciente</value>
+  </data>
+  <data name="Show_Patients" xml:space="preserve">
+    <value>Mostrar Pacientes</value>
+  </data>
+  <data name="Show_Patients_Covid_Status" xml:space="preserve">
+    <value>Mostrar pacientes segun estado Covid</value>
+  </data>
+  <data name="Show_Patients_With_Status_Covid" xml:space="preserve">
+    <value>Estado pacientes por Covid</value>
+  </data>
+  <data name="Show_Patients_Word" xml:space="preserve">
+    <value>Pacientes</value>
+  </data>
+  <data name="StateWithCovid" xml:space="preserve">
+    <value>Estado del Covid</value>
+  </data>
+  <data name="StreetName" xml:space="preserve">
+    <value>Nombre de la calle</value>
+  </data>
+  <data name="StreetNumber" xml:space="preserve">
+    <value>Nombre de la calle</value>
+  </data>
+  <data name="Welcome_To_Hospital" xml:space="preserve">
+    <value>Bienvenidos al Hospital Alchemilla</value>
+  </data>
+</root>
