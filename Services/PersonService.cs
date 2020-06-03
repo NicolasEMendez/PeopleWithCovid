@@ -27,7 +27,7 @@ namespace Services
         /// </summary>
         public void AddPatient()
         {
-            Person personToAdd = new Person
+            Patient personToAdd = new Patient
             {
                 Name = AddModifyPatientName(null),
                 LastName = AddModifyPatientLastName(null),
@@ -51,9 +51,9 @@ namespace Services
         /// </summary>
         public void ModifyPatient()
         {
-            List<Person> persons = personWithCovidRepository.GetAllPeopleWithCovid();
+            List<Patient> persons = personWithCovidRepository.GetAllPeopleWithCovid();
             List<Error> errors;
-            Person personToModify;
+            Patient personToModify;
             string idOfPatient;
             List<int> personsIds = persons
                 .Select(x => x.PersonId)
@@ -75,7 +75,7 @@ namespace Services
 
                     if (errors.Count > 0)
                     {
-                        screenService.ShowErrors(nameof(Person.PersonId), errors);
+                        screenService.ShowErrors(nameof(Patient.PersonId), errors);
                     }
 
                 } while (errors.Count > 0);
@@ -106,7 +106,7 @@ namespace Services
         /// </summary>
         public void DeletePatient()
         {
-            List<Person> persons = personWithCovidRepository.GetAllPeopleWithCovid();
+            List<Patient> persons = personWithCovidRepository.GetAllPeopleWithCovid();
             List<Error> errors;
             string idOfPatient;
             List<int> personsIds = persons
@@ -129,7 +129,7 @@ namespace Services
 
                     if (errors.Count > 0)
                     {
-                        screenService.ShowErrors(nameof(Person.PersonId), errors);
+                        screenService.ShowErrors(nameof(Patient.PersonId), errors);
                     }
 
                 } while (errors.Count > 0);
@@ -172,7 +172,7 @@ namespace Services
         /// Adds or modifies the Person postal code
         /// </summary>
         /// <returns>The number of the postal code</returns>
-        private int AddModifyPostalCode(Person person)
+        private int AddModifyPostalCode(Patient person)
         {
             string postalCode;
             int postalCodeNumberified;
@@ -185,7 +185,7 @@ namespace Services
                     screenService.ShowPatient(person);
                 }
 
-                screenService.ShowPleaseEnterData(nameof(Person.Address.PostalCode));
+                screenService.ShowPleaseEnterData(nameof(Patient.Address.PostalCode));
 
                 postalCode = Console.ReadLine();
 
@@ -194,7 +194,7 @@ namespace Services
 
                 if (errorsAndint.Item2.Count > 0)
                 {
-                    screenService.ShowErrors(nameof(Person.Address.PostalCode), errorsAndint.Item2);
+                    screenService.ShowErrors(nameof(Patient.Address.PostalCode), errorsAndint.Item2);
                 }
 
             } while (errorsAndint.Item2.Count > 0);
@@ -206,7 +206,7 @@ namespace Services
         /// Adds or modifies the street number of a person
         /// </summary>
         /// <returns>the number of the street</returns>
-        private int AddModifyStreetNumber(Person person)
+        private int AddModifyStreetNumber(Patient person)
         {
             string streetNumber;
             int postalCodeNumberified;
@@ -219,7 +219,7 @@ namespace Services
                     screenService.ShowPatient(person);
                 }
 
-                screenService.ShowPleaseEnterData(nameof(Person.Address.StreetNumber));
+                screenService.ShowPleaseEnterData(nameof(Patient.Address.StreetNumber));
 
                 streetNumber = Console.ReadLine();
 
@@ -228,7 +228,7 @@ namespace Services
 
                 if (errorsAndint.Item2.Count > 0)
                 {
-                    screenService.ShowErrors(nameof(Person.Address.StreetNumber), errorsAndint.Item2);
+                    screenService.ShowErrors(nameof(Patient.Address.StreetNumber), errorsAndint.Item2);
                 }
 
             } while (errorsAndint.Item2.Count > 0);
@@ -241,11 +241,13 @@ namespace Services
         /// </summary>
         public void ShowAllPatients()
         {
-            List<Person> persons = personWithCovidRepository.GetAllPeopleWithCovid();
+            List<Patient> persons = personWithCovidRepository.GetAllPeopleWithCovid();
 
             if(persons.Count == 0)
             {
                 screenService.NoPatientsToShow();
+
+                return;
             }
 
             screenService.ShowPatients(persons);
@@ -256,7 +258,7 @@ namespace Services
         /// </summary>
         /// <returns>The covid state</returns>
         /// <param name="person">The person that you are modifying</param>
-        private CovidState AddModifyStatusWithCovid(Person person)
+        private CovidState AddModifyStatusWithCovid(Patient person)
         {
             List<Error> errors;
             string covid;
@@ -268,7 +270,7 @@ namespace Services
                     screenService.ShowPatient(person);
                 }
 
-                screenService.ShowPleaseEnterData(nameof(Person.StateWithCovid));
+                screenService.ShowPleaseEnterData(nameof(Patient.StateWithCovid));
                 screenService.ShowCovidStates();
 
                 covid = Console.ReadLine();
@@ -277,7 +279,7 @@ namespace Services
 
                 if (errors.Count > 0)
                 {
-                    screenService.ShowErrors(nameof(Person.StateWithCovid), errors);
+                    screenService.ShowErrors(nameof(Patient.StateWithCovid), errors);
                 }
 
             } while (errors.Count > 0);
@@ -291,7 +293,14 @@ namespace Services
         /// <param name="covidState">The patients with the Covid State you whish to see</param>
         public void ShowPeopleWithCovidState(CovidState covidState)
         {
-            List<Person> persons = personWithCovidRepository.GetPeopleWithCovidState(covidState);
+            List<Patient> persons = personWithCovidRepository.GetPeopleWithCovidState(covidState);
+
+            if(persons.Count == 0)
+            {
+                screenService.NoPatientsToShow();
+
+                return;
+            }
 
             screenService.ShowPatients(persons);
         }
@@ -300,7 +309,7 @@ namespace Services
         /// Adds or modifies a patient's name
         /// </summary>
         /// <returns>The patient's name</returns>
-        private string AddModifyPatientName(Person person)
+        private string AddModifyPatientName(Patient person)
         {
             string name;
             List<Error> errors;
@@ -312,7 +321,7 @@ namespace Services
                     screenService.ShowPatient(person);
                 }
 
-                screenService.ShowPleaseEnterData(nameof(Person.Name));
+                screenService.ShowPleaseEnterData(nameof(Patient.Name));
 
                 name = Console.ReadLine();
 
@@ -320,7 +329,7 @@ namespace Services
 
                 if (errors.Count > 0)
                 {
-                    screenService.ShowErrors(nameof(Person.Name), errors);
+                    screenService.ShowErrors(nameof(Patient.Name), errors);
                 }
 
             } while (errors.Count > 0);
@@ -332,7 +341,7 @@ namespace Services
         /// Adds or modifies the Name of the street
         /// </summary>
         /// <returns>the name of the street</returns>
-        private string AddModifyStreetName(Person person)
+        private string AddModifyStreetName(Patient person)
         {
             List<Error> errors;
             string streetName;
@@ -344,7 +353,7 @@ namespace Services
                     screenService.ShowPatient(person);
                 }
 
-                screenService.ShowPleaseEnterData(nameof(Person.Address.StreetName));
+                screenService.ShowPleaseEnterData(nameof(Patient.Address.StreetName));
 
                 streetName = Console.ReadLine();
 
@@ -352,7 +361,7 @@ namespace Services
 
                 if (errors.Count > 0)
                 {
-                    screenService.ShowErrors(nameof(Person.Address.StreetName), errors);
+                    screenService.ShowErrors(nameof(Patient.Address.StreetName), errors);
                 }
 
             } while (errors.Count > 0);
@@ -364,7 +373,7 @@ namespace Services
         /// Adds or modifies the patient last name
         /// </summary>
         /// <returns>the patient last name</returns>
-        private string AddModifyPatientLastName(Person person)
+        private string AddModifyPatientLastName(Patient person)
         {
             string name;
             List<Error> errors;
@@ -376,7 +385,7 @@ namespace Services
                     screenService.ShowPatient(person);
                 }
 
-                screenService.ShowPleaseEnterData(nameof(Person.LastName));
+                screenService.ShowPleaseEnterData(nameof(Patient.LastName));
 
                 name = Console.ReadLine();
 
@@ -384,7 +393,7 @@ namespace Services
 
                 if (errors.Count > 0)
                 {
-                    screenService.ShowErrors(nameof(Person.LastName), errors);
+                    screenService.ShowErrors(nameof(Patient.LastName), errors);
                 }
 
             } while (errors.Count > 0);

@@ -50,7 +50,7 @@ namespace Services
         /// Shows all the patients but with their Ids
         /// </summary>
         /// <param name="persons"></param>
-        public void ShowPatientsWithIds(List<Person> persons)
+        public void ShowPatientsWithIds(List<Patient> persons)
         {
             ClearScreen();
 
@@ -90,7 +90,7 @@ namespace Services
         /// Shows a Patient
         /// </summary>
         /// <param name="personToModify"></param>
-        public void ShowPatient(Person personToModify)
+        public void ShowPatient(Patient personToModify)
         {
             ClearScreen();
 
@@ -114,6 +114,8 @@ namespace Services
             ClearScreen();
 
             Console.WriteLine($"{locService.GetString("No_Patients_To")} {locService.GetString(action.ToString())}");
+
+            Console.ReadKey(true);
         }
 
         /// <summary>
@@ -205,7 +207,7 @@ namespace Services
         /// <summary>
         /// Shows all Patients
         /// </summary>
-        public void ShowPatients(List<Person> persons)
+        public void ShowPatients(List<Patient> persons)
         {
             ClearScreen();
 

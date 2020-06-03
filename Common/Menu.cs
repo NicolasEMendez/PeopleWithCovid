@@ -19,6 +19,8 @@ namespace Common
         /// </summary>
         public void PrintToConsole()
         {
+            Console.Clear();
+
             Console.WriteLine(Description);
             Console.WriteLine(string.Empty);
 

@@ -7,7 +7,7 @@ namespace CovidRepository
 {
     public class PersonWithCovidRepository
     {
-        private static List<Person> persons = new List<Person>();
+        private List<Patient> persons = new List<Patient>();
 
         public PersonWithCovidRepository()
         {
@@ -18,12 +18,12 @@ namespace CovidRepository
         /// Adds a person with covid
         /// </summary>
         /// <param name="person"></param>
-        public void AddPersonWithCovid(Person person)
+        public void AddPersonWithCovid(Patient person)
         {
             persons.Add(person);
         }
 
-        public Person GetPersonById(int id)
+        public Patient GetPersonById(int id)
         {
             return persons.Where(x => x.PersonId == id)
                 .FirstOrDefault();
@@ -45,7 +45,7 @@ namespace CovidRepository
         /// Modify a person
         /// </summary>
         /// <param name="personModified">The person modifieds that will replace the older one</param>
-        public void ModifyPersonWithCovid(Person personModified)
+        public void ModifyPersonWithCovid(Patient personModified)
         {
             int index = persons
                 .FindIndex(x => x.PersonId == personModified.PersonId);
@@ -58,7 +58,7 @@ namespace CovidRepository
         /// </summary>
         /// <param name="state">The state (CovidState) you want to search</param>
         /// <returns>a list of persons in that state</returns>
-        public List<Person> GetPeopleWithCovidState(CovidState state)
+        public List<Patient> GetPeopleWithCovidState(CovidState state)
         {
             return persons
                 .Where(x => x.StateWithCovid == state)
@@ -69,7 +69,7 @@ namespace CovidRepository
         /// Gets all the people with covid
         /// </summary>
         /// <returns>Returns a list of people</returns>
-        public List<Person> GetAllPeopleWithCovid()
+        public List<Patient> GetAllPeopleWithCovid()
         {
             return persons;
         }
@@ -77,11 +77,11 @@ namespace CovidRepository
         /// <summary>
         /// Add initial patients with covid
         /// </summary>
-        private List<Person> AddPeopleWithCovidAlready()
+        private List<Patient> AddPeopleWithCovidAlready()
         {
-            List<Person> personsWithCovid = new List<Person>()
+            List<Patient> personsWithCovid = new List<Patient>()
             {
-                new Person()
+                new Patient()
                 {
                     LastName = "Casals",
                     Name = "Julio Cesar",
@@ -94,7 +94,7 @@ namespace CovidRepository
                         StreetNumber = 1600
                     }
                 },
-                new Person()
+                new Patient()
                 {
                     LastName = "Galindo",
                     Name = "Gaspar",
@@ -107,7 +107,7 @@ namespace CovidRepository
                         StreetNumber = 2504
                     }
                 },
-                new Person()
+                new Patient()
                 {
                     LastName = "Valcarcel",
                     Name = "Luis",
@@ -120,7 +120,7 @@ namespace CovidRepository
                         StreetNumber = 3321
                     }
                 },
-                new Person()
+                new Patient()
                 {
                     LastName = "Arenas",
                     Name = "Lazaro",
@@ -133,7 +133,7 @@ namespace CovidRepository
                         StreetNumber = 453
                     }
                 },
-                new Person()
+                new Patient()
                 {
                     LastName = "Pazos",
                     Name = "Ramiel",
