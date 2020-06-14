@@ -13,6 +13,8 @@ namespace Services
         private readonly LocalizationService locService;
         private readonly PersonValidationService personValidationService;
         private readonly PersonWithCovidRepository personWithCovidRepository;
+        private readonly FileRepository fileRepository;
+        private readonly MainConfiguration mainConfiguration;
 
         public PersonService(LocalizationService locService)
         {
@@ -20,6 +22,8 @@ namespace Services
             screenService = new ScreenService(locService);
             personValidationService = new PersonValidationService(locService);
             personWithCovidRepository = new PersonWithCovidRepository();
+            fileRepository = new FileRepository();
+            mainConfiguration = new MainConfiguration();
         }
 
         /// <summary>
@@ -367,6 +371,75 @@ namespace Services
             } while (errors.Count > 0);
 
             return streetName;
+        }
+
+        /// <summary>
+        /// Export the patients to an excel file
+        /// </summary>
+        public void ExportPatients(FileFormat fileFormat)
+        {
+            var patients = personWithCovidRepository.GetAllPeopleWithCovid();
+
+            string fileName = fileRepository.CreateFileName(fileFormat);
+
+            string completePath = fileRepository.ReturnCompletePath(mainConfiguration.Configuration.DirectoryToSaveFiles, fileName);
+
+            if (!fileRepository.DirectoryExists(mainConfiguration.Configuration.DirectoryToSaveFiles))
+            {
+                fileRepository.CreateDirectory(mainConfiguration.Configuration.DirectoryToSaveFiles);
+            }
+
+            switch (fileFormat)
+            {
+                case FileFormat.xlsx:
+                    CreateXlsxFile(patients, completePath);
+                    break;
+                case FileFormat.txt:
+                    CreateTxtFile(patients, completePath);
+                    break;
+                default:
+                    screenService.ShowErrorCreatingFile(completePath);
+                    break;
+            }
+
+        }
+
+        /// <summary>
+        /// Calls the file repository to create an excel file
+        /// </summary>
+        /// <param name="completePath">The complete path where it was created</param
+        /// <param name="persons">The patients you want to show</param>
+        private void CreateXlsxFile(List<Patient> persons, string completePath)
+        {
+            bool excelFileCreatedSuccessfully = fileRepository.WritePersonToExcelFile(persons, completePath);
+
+            if(excelFileCreatedSuccessfully)
+            {
+                screenService.ShowFileCreatedSuccessFully(completePath);
+            }
+            else
+            {
+                screenService.ShowErrorCreatingFile(completePath);
+            }
+        }
+
+        /// <summary>
+        /// Calls the file repository to create a txt file of all patients
+        /// </summary>
+        /// <param name="completePath"></param>
+        /// <param name="persons">The patients you want to show</param>
+        private void CreateTxtFile(List<Patient> persons, string completePath)
+        {
+            bool wroteSuccessfully = fileRepository.WritePersonsToTxtFile(persons, completePath);
+
+            if (wroteSuccessfully)
+            {
+                screenService.ShowFileCreatedSuccessFully(completePath);
+            }
+            else
+            {
+                screenService.ShowErrorCreatingFile(completePath);
+            }
         }
 
         /// <summary>

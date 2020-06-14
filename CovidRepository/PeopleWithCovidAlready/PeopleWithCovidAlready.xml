@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PatientsCollection>
+  <Patient>
+    <LastName>Casals</LastName>
+    <Name>Julio Cesar</Name>
+    <PersonId>1</PersonId>
+    <StateWithCovid>Deceased</StateWithCovid>
+    <Address>
+      <PostalCode>1100</PostalCode>
+      <StreetName>Garalina</StreetName>
+      <StreetNumber>1600</StreetNumber>
+    </Address>
+  </Patient>
+  
+  <Patient>
+    <LastName>Galindo</LastName>
+    <Name>Gaspar</Name>
+    <PersonId>2</PersonId>
+    <StateWithCovid>Critical</StateWithCovid>
+    <Address>
+      <PostalCode>1100</PostalCode>
+      <StreetName>Portia</StreetName>
+      <StreetNumber>2504</StreetNumber>
+    </Address>
+  </Patient>
+
+  <Patient>
+    <LastName>Valcarcel</LastName>
+    <Name>Luis</Name>
+    <PersonId>3</PersonId>
+    <StateWithCovid>AdmittedInHospital</StateWithCovid>
+    <Address>
+      <PostalCode>1100</PostalCode>
+      <StreetName>Grim Dawn</StreetName>
+      <StreetNumber>3321</StreetNumber>
+    </Address>
+  </Patient>
+
+  <Patient>
+    <LastName>Arenas</LastName>
+    <Name>Lazaro</Name>
+    <PersonId>4</PersonId>
+    <StateWithCovid>UnderEvaluation</StateWithCovid>
+    <Address>
+      <PostalCode>1100</PostalCode>
+      <StreetName>Rust</StreetName>
+      <StreetNumber>453</StreetNumber>
+    </Address>
+  </Patient>
+  
+</PatientsCollection>

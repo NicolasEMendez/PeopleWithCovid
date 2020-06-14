@@ -22,6 +22,7 @@ namespace Common
             Console.Clear();
 
             Console.WriteLine(Description);
+            
             Console.WriteLine(string.Empty);
 
             foreach (var menu in MenuItems)

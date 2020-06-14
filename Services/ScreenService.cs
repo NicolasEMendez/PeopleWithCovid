@@ -252,5 +252,26 @@ namespace Services
             return locStateWithCovid;
         }
 
+        /// <summary>
+        /// Shows a file created successfully
+        /// </summary>
+        /// <param name="completePath">The path where it was created</param>
+        public void ShowFileCreatedSuccessFully(string completePath)
+        {
+            Console.WriteLine($"{locService.GetString("File_Created_Sucessfully_At")} { completePath }");
+
+            ShowPressAnyKeyToContinue();
+        }
+
+        /// <summary>
+        /// Shows an Error while creating the file
+        /// </summary>
+        /// <param name="completePath">The Path of the file</param>
+        public void ShowErrorCreatingFile(string completePath)
+        {
+            Console.WriteLine($"{locService.GetString("File_CouldNotBe_Created_At")} { completePath }");
+
+            ShowPressAnyKeyToContinue();
+        }
     }
 }

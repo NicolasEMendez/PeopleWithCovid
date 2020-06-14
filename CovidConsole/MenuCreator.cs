@@ -40,7 +40,8 @@ namespace CovidConsole
                     ShowCovidStatus(),
                     AddCovidPatientMenu(),
                     ModifyCovidPatientMenu(),
-                    DeleteCovidPatientMenu()
+                    DeleteCovidPatientMenu(),
+                    ExportCovidPatientsMenu()
                 }
             };
             return menuCollection;
@@ -105,6 +106,11 @@ namespace CovidConsole
                     {
                         Description = locService.GetString("Show_Delete_Patients"),
                         SubMenuId = 6
+                    },
+                    new MenuItem()
+                    {
+                        Description = locService.GetString("Show_Export_Patients"),
+                        SubMenuId = 7
                     },
                     new MenuItem()
                     {
@@ -274,6 +280,35 @@ namespace CovidConsole
                         Description = locService.GetString("Show_Delete_Patients"),
                         SubMenuId = 1,
                         Actions = new List<Action>() { () => personService.DeletePatient() }
+                    },
+                    new MenuItem()
+                    {
+                        Description = locService.GetString("Return_Main_Menu"),
+                        SubMenuId = 1,
+                    }
+                }
+            };
+        }
+
+        private Menu ExportCovidPatientsMenu()
+        {
+            return new Menu()
+            {
+                MenuId = 7,
+                Description = $"{ locService.GetString("Show_Export_Patients").ToUpper() }, { locService.GetString("Please_Select_Option").ToUpper() }",
+                MenuItems =
+                {
+                    new MenuItem()
+                    {
+                        Description = locService.GetString("Show_Export_Patients_Txt"),
+                        SubMenuId = 1,
+                        Actions = new List<Action>() { () => personService.ExportPatients(CovidRepository.FileFormat.txt) }
+                    },
+                    new MenuItem()
+                    {
+                        Description = locService.GetString("Show_Export_Patients_Xlsx"),
+                        SubMenuId = 1,
+                        Actions = new List<Action>() { () => personService.ExportPatients(CovidRepository.FileFormat.xlsx) }
                     },
                     new MenuItem()
                     {

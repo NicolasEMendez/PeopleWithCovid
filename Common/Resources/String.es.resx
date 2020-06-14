@@ -174,6 +174,12 @@
   <data name="Error_Only_Number" xml:space="preserve">
     <value>Esta opcion solo debe contener numeros</value>
   </data>
+  <data name="File_CouldNotBe_Created_At" xml:space="preserve">
+    <value>El archivo no pudo ser creado en</value>
+  </data>
+  <data name="File_Created_Sucessfully_At" xml:space="preserve">
+    <value>Archivo creado exitosamente en</value>
+  </data>
   <data name="Language_Selected_English" xml:space="preserve">
     <value>Ingles</value>
   </data>
@@ -275,6 +281,15 @@
   </data>
   <data name="Show_Delete_Patients" xml:space="preserve">
     <value>Eliminar Paciente</value>
+  </data>
+  <data name="Show_Export_Patients" xml:space="preserve">
+    <value>Exportar Pacientes a un formato</value>
+  </data>
+  <data name="Show_Export_Patients_Txt" xml:space="preserve">
+    <value>Exportar Pacientes a txt</value>
+  </data>
+  <data name="Show_Export_Patients_Xlsx" xml:space="preserve">
+    <value>Exportar pacientes a Excel</value>
   </data>
   <data name="Show_Modify_Patients" xml:space="preserve">
     <value>Modificar Paciente</value>

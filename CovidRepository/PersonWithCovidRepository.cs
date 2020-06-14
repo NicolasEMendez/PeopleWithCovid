@@ -1,16 +1,24 @@
 ﻿using Common;
 using Common.Domain;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Xml.Serialization;
 
 namespace CovidRepository
 {
     public class PersonWithCovidRepository
     {
+        private readonly FileRepository fileRepository;
+        private readonly MainConfiguration mainConfiguration;
         private List<Patient> persons = new List<Patient>();
 
         public PersonWithCovidRepository()
         {
+            mainConfiguration = new MainConfiguration();
+            fileRepository = new FileRepository();
             persons = AddPeopleWithCovidAlready();
         }
 
@@ -79,76 +87,11 @@ namespace CovidRepository
         /// </summary>
         private List<Patient> AddPeopleWithCovidAlready()
         {
-            List<Patient> personsWithCovid = new List<Patient>()
-            {
-                new Patient()
-                {
-                    LastName = "Casals",
-                    Name = "Julio Cesar",
-                    PersonId = 1,
-                    StateWithCovid = CovidState.Deceased,
-                    Address = new Address()
-                    {
-                        PostalCode = 1100,
-                        StreetName = "Garalina",
-                        StreetNumber = 1600
-                    }
-                },
-                new Patient()
-                {
-                    LastName = "Galindo",
-                    Name = "Gaspar",
-                    PersonId = 2,
-                    StateWithCovid = CovidState.UnderEvaluation,
-                    Address = new Address()
-                    {
-                        PostalCode = 1100,
-                        StreetName = "Portia",
-                        StreetNumber = 2504
-                    }
-                },
-                new Patient()
-                {
-                    LastName = "Valcarcel",
-                    Name = "Luis",
-                    PersonId = 3,
-                    StateWithCovid = CovidState.Critical,
-                    Address = new Address()
-                    {
-                        PostalCode = 1100,
-                        StreetName = "Grim Dawn",
-                        StreetNumber = 3321
-                    }
-                },
-                new Patient()
-                {
-                    LastName = "Arenas",
-                    Name = "Lazaro",
-                    PersonId = 4,
-                    StateWithCovid = CovidState.AdmittedInHospital,
-                    Address = new Address()
-                    {
-                        PostalCode = 1100,
-                        StreetName = "Rust",
-                        StreetNumber = 453
-                    }
-                },
-                new Patient()
-                {
-                    LastName = "Pazos",
-                    Name = "Ramiel",
-                    PersonId = 5,
-                    StateWithCovid = CovidState.Recuperated,
-                    Address = new Address()
-                    {
-                        PostalCode = 4421,
-                        StreetName = "Streets Of Rogue",
-                        StreetNumber = 5221
-                    }
-                }
-            };
+            string solutionDir = fileRepository.ReturnInitialCovidPatientPath();
 
-            return personsWithCovid;
+            PatientsCollection patientsDeserialized = fileRepository.ReturnPatientsCollectionByReadingXml(solutionDir);
+
+            return patientsDeserialized.Patients;
         }
     }
 }
